@@ -7,3 +7,7 @@ Then inside the client folder execute the command npx create-react-app blog-app,
 Then copy all the files from this repo's client folder to your client folder
 
 Then have separate terminals for client and server and in server execute node server.js and in client execute npm start
+
+Screenshots:
+
+
