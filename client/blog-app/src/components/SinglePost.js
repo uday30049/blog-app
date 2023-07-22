@@ -81,6 +81,7 @@ function SinglePost() {
           {isEditing ? (
             <div>
               <div className="mb-3">
+                <h2>Edit post</h2>
                 <label htmlFor="title" className="form-label">Title</label>
                 <input
                   type="text"

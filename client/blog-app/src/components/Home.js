@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Home() {
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     fetchPosts();
+    checkLoginStatus();
   }, []);
 
   const fetchPosts = async () => {
@@ -18,6 +21,19 @@ function Home() {
     }
   };
 
+  const checkLoginStatus = () => {
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token);
+  };
+
+  const handleReadMore = (postId) => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    } else {
+      navigate(`/posts/${postId}`);
+    }
+  };
+
   return (
     <div className="container">
       <h2 className="mt-4 mb-3">Blogs to read</h2>
@@ -26,7 +42,9 @@ function Home() {
           <div className="card-body">
             <h3 className="card-title">{post.title}</h3>
             <p className="card-text">Author: {post.author.username}</p>
-            <Link to={`/posts/${post._id}`} className="btn btn-primary">Read More</Link>
+            <button onClick={() => handleReadMore(post._id)} className="btn btn-primary">
+              Read More
+            </button>
           </div>
         </div>
       ))}
