@@ -16,7 +16,7 @@ function SinglePost() {
 
   const fetchPost = async () => {
     try {
-      const response = await axios.get(`http://blog-app-omega-ten.vercel.app/api/posts/${id}`);
+      const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
       setPost(response.data);
       setEditedTitle(response.data.title);
       setEditedContent(response.data.content);

@@ -15,7 +15,7 @@ function AddPost() {
       const user = JSON.parse(atob(token.split('.')[1])); // Decoding the token to get the user data
       const { id: authorId } = user;
       await axios.post(
-        'http://blog-app-omega-ten.vercel.app/api/posts',
+        'http://localhost:5000/api/posts',
         { title, content, authorId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

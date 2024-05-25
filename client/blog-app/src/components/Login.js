@@ -10,7 +10,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://blog-app-omega-ten.vercel.app/api/login', { username, password });
+      const response = await axios.post('http://localhost:5000/api/login', { username, password });
       const token=response.data.token
       console.log('Token:', token);
       localStorage.setItem('token', token);
