@@ -43,7 +43,7 @@ function Home() {
             <h3 className="card-title">{post.title}</h3>
             <p className="card-text">Author: {post.author.username}</p>
             <button onClick={() => handleReadMore(post._id)} className="btn btn-primary">
-              Read More
+              Read More!
             </button>
           </div>
         </div>
